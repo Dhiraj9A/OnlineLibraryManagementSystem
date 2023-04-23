@@ -1,0 +1,25 @@
+{% load static %} {% include 'base.html' %} {% block content %}
+<div class="container">
+    <h1 class="form-title">SignUp</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="main-user-info">
+            <div class="user-input-box">
+                <label for="image">Chose the Image</label>
+                <input type="file" name="image" id="fileToUpload">
+            </div>
+            <div class="user-input-box">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" placeholder="enter Books title">
+            </div>
+            <div class="user-input-box">
+                <label for="description">description</label>
+                <input type="text" id="description" name="description" placeholder="enter description">
+            </div>
+        </div>
+        <div class="form-submit-btn">
+            <input type="submit" name="submit" value="submit">
+        </div>
+</div>
+</form>
+{% endblock content %}

@@ -1,0 +1,25 @@
+<!--...............................navigation start........................ -->
+<div class="container_nav">
+    <h1 class="head_logo">OLMS</h1>
+    <input type="checkbox" id="menu_bar" name="">
+    <label for="menu_bar" class="manu_lable">Menu</label>
+    <div class="nav_bar">
+      <ul class="nav_ul">
+        <li class="nav_list"><a class="nav_links" href="{% url 'home' %}">Home</a></li>
+        <!-- <li class="nav_list"><a class="nav_links" href="#">Services</a></li> -->
+        <li class="nav_list"><a class="nav_links" href="{% url 'contact' %}">Contact</a></li>
+        <li class="nav_list"><a class="nav_links" href="{% url 'about' %}">About</a></li>
+        
+        {% if not request.user.is_staff %}
+        <li class="nav_list"><a class="nav_links" href="#">Login</a></li>
+        {% endif %}
+        {% if request.user.is_staff %}
+        <li class="nav_list"><a class="nav_links" href="{% url 'view_user_details' %}">user</a></li>
+        <li class="nav_list"><a class="nav_links" href="#">Student</a></li>
+        <li class="nav_list"><a class="nav_links" href="">Books</a></li>
+        <li class="nav_list"><a class="nav_links" href="{% url 'logout' %}">Logout</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div> <!--end navigation-->
+ 

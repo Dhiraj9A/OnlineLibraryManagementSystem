@@ -1,0 +1,25 @@
+{% load static %} {% include 'base.html' %} {% block content %}
+<div class="container">
+    <h1 class="form-title">Update Books</h1>
+    <form action="/update_books/{{books_details.id}}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="main-user-info">
+            <div class="user-input-box">
+                <label for="image">Chose the Image</label>
+                <input type="file" name="image" id="fileToUpload" value="{{books_details.image}}" >
+            </div>
+            <div class="user-input-box">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" value="{{books_details.title}}">
+            </div>
+            <div class="user-input-box">
+                <label for="description">description</label>
+                <input type="text" id="description" name="description" value="{{books_details.description}}">
+            </div>
+        </div>
+        <div class="form-submit-btn">
+            <input type="submit" name="submit" value="submit">
+        </div>
+</div>
+</form>
+{% endblock content %}

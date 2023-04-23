@@ -1,0 +1,27 @@
+{% load static %} 
+{% include 'base.html' %} 
+{% block content %}
+<div class="container">
+    <h1 class="form-title">Admin Login</h1>
+    <form action="" method="POST">
+        {% for msg in messages %}
+          <h4 style="color: red; text-align: center;">{{ msg }}</h4>
+        {% endfor %}
+        {% csrf_token %}
+        <div class="main-user-info">
+            <div class="user-input-box">
+                <label for="name">UserName</label>
+                <input type="txt" id="username" name="username" placeholder="enter username">
+            </div>
+            <div class="user-input-box">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="enter password">
+            </div>
+            <div class="form-submit-btn">
+                <input type="submit" name="submit" value="Login">
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
+{% include "footer.html" %}
